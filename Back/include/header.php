@@ -17,13 +17,13 @@ include(__DIR__ . '/../../config.php');
             <h2>TryAnime</h2>
         </span>
         <ul>
-            <a href="">
+            <a href="<?php echo BASE_URL ?>index.php">
                 <li>Accueil</li>
             </a>
             <a href="<?php echo PAGES_URL ?>catalogue.php">
                 <li>Catalogue</li>
             </a>
-            <a href="">
+            <a href="<?php echo PAGES_URL ?>favori.php">
                 <li>Favori</li>
             </a>
             <a href="">

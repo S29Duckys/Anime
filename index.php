@@ -4,7 +4,6 @@ session_start();
 
 #inclure le header
 include(__DIR__ . '/back/include/header.php');
-
 ?>
 
 <!DOCTYPE html>
