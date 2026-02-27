@@ -1,6 +1,5 @@
 import "./bootstrap";
 
-
 // Home Page Cursor Animation
 
 const cursor = document.getElementById("cursor");
