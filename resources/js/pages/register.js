@@ -132,16 +132,16 @@ function updateUI(step) {
     document.getElementById("formTitle").textContent = m.title;
 }
 
-function nextStep(current) {
+window.nextStep = function (current) {
     if (!validateStep(current)) return;
     updateUI(current + 1);
-}
+};
 
-function prevStep(current) {
+window.prevStep = function (current) {
     updateUI(current - 1);
-}
+};
 
-function submitForm() {
+window.submitForm = function () {
     if (!validateStep(2)) return;
 
     const pseudo = document.getElementById("pseudo").value || "SENPAI";
@@ -156,4 +156,4 @@ function submitForm() {
 
     // Afficher succès
     document.getElementById("successScreen").classList.add("active");
-}
+};
