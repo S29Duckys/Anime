@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 
 Route::get('/', function () {
     $nmb = 0;
@@ -22,7 +23,14 @@ Route::get('/login', function () {
 
 Route::post('/register', function (Request $request) {
     return dd($request->all());
-    return "hello";
+
+    $validator = Validator::make($request->all(), [
+        'pseudo' => 'required|string|max:255|unique:users',
+        'prenom' => 'required|string|max:255',
+        'nom' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8|confirmed',
+    ]);
 });
 
 Route::post('/login', function () {
