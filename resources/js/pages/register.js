@@ -1,34 +1,3 @@
-/* CURSOR */
-const cur = document.getElementById("cursor"),
-    ring = document.getElementById("cursorRing");
-let mx = 0,
-    my = 0,
-    rx = 0,
-    ry = 0;
-document.addEventListener("mousemove", (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-    cur.style.left = mx + "px";
-    cur.style.top = my + "px";
-});
-(function anim() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + "px";
-    ring.style.top = ry + "px";
-    requestAnimationFrame(anim);
-})();
-document.querySelectorAll("a,button,input,label,select").forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-        cur.style.transform = "translate(-50%,-50%) scale(2.2)";
-        ring.style.width = ring.style.height = "50px";
-    });
-    el.addEventListener("mouseleave", () => {
-        cur.style.transform = "translate(-50%,-50%) scale(1)";
-        ring.style.width = ring.style.height = "36px";
-    });
-});
-
 /* EYE TOGGLES */
 function makeEye(inp, btn, ico) {
     document.getElementById(btn).addEventListener("click", () => {

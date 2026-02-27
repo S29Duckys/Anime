@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TryAnime — Accueil</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  @vite(['resources/css/app.css','resources/js/app.js'])
+  @vite(['resources/css/app.css','resources/js/app.js','resources/js/components/cursorAnimation.js'])
 
 </head>
 
