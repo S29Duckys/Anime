@@ -7,7 +7,7 @@
     <title>Inscription — TryAnime</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
-    @vite(['resources/css/pages/register.css','resources/js/pages/register.js'])
+    @vite(['resources/css/pages/register.css','resources/js/pages/register.js','resources/js/components/cursorAnimation.js'])
 </head>
 
 <body>
@@ -17,12 +17,7 @@
 
     <nav>
         <a href="{{ url('/') }}" class="logo">Try<span>Anime</span></a>
-        <ul class="nav-links">
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">Tendances</a></li>
-            <li><a href="#">Genres</a></li>
-            <li><a href="#">Communauté</a></li>
-        </ul>
+        
         <div class="nav-actions">
             <a href="{{ url('/login') }}" class="btn btn-primary">Connexion</a>
         </div>

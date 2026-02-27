@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\UsersController; 
 
 Route::get('/', function () {
     $nmb = 0;
@@ -21,18 +22,6 @@ Route::get('/login', function () {
     return view('/auth/login');
 });
 
-Route::post('/register', function (Request $request) {
-    return dd($request->all());
+Route::post('/register', [UsersController::class, 'store']);
 
-    $validator = Validator::make($request->all(), [
-        'pseudo' => 'required|string|max:255|unique:users',
-        'prenom' => 'required|string|max:255',
-        'nom' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
-    ]);
-});
-
-Route::post('/login', function () {
-    return "holla";
-});
+Route::post('/login', [UsersController::class, 'login']);
