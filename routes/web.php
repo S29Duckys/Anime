@@ -1,27 +1,15 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\UsersController; 
+use App\Http\Controllers\UsersController;
 
 Route::get('/', function () {
     $nmb = 0;
-
-    return view('welcome', [
-        'nmb' => $nmb
-    ]);
+    return view('welcome', ['nmb' => $nmb]);
 });
 
+Route::get('/register', [UsersController::class, 'create'])->name('register');
+Route::post('/register', [UsersController::class, 'store'])->name('register.store');
 
-Route::get('/register', function () {
-    return view('/auth/register');
-});
-
-Route::get('/login', function () {
-    return view('/auth/login');
-});
-
-Route::post('/register', [UsersController::class, 'store']);
-
-Route::post('/login', [UsersController::class, 'login']);
+Route::get('/login', [UsersController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [UsersController::class, 'login'])->name('login.post');
