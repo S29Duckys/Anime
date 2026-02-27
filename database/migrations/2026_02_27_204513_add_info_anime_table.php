@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('original_title');
-            $table->string('description');
             $table->string('image_url');
             $table->string('release_date');
             $table->string('genre');
-            $table->string('sinopsis');          
+            $table->text('sinopsis');          
             $table->timestamps();
         });
     }

@@ -239,11 +239,11 @@ nav {
   filter: saturate(0.8);
 }
 
-.fc1 { background: center/cover url(https://raw.githubusercontent.com/Anime-Sama/IMG/img/contenu/one-piece.jpg); width: 180px; height: 260px; top: 15%; left: 15%; animation-duration: 6s; animation-delay: 0s; }
-.fc2 { background: center/cover url(https://raw.githubusercontent.com/Anime-Sama/IMG/img/contenu/one-punch-man.jpg); width: 150px; height: 220px; top: 10%; left: 40%; animation-duration: 7s; animation-delay: -2s; }
-.fc3 { background: center/cover url(https://raw.githubusercontent.com/Anime-Sama/IMG/img/contenu/shingeki-kyojin-chuugakkou.jpg); width: 200px; height: 280px; top: 45%; left: 25%; animation-duration: 8s; animation-delay: -4s; }
-.fc4 { background: center/cover url(https://raw.githubusercontent.com/Anime-Sama/IMG/img/contenu/ranma1-2.jpg); width: 140px; height: 200px; top: 50%; left: 55%; animation-duration: 5s; animation-delay: -1s; }
-.fc5 { background: center/cover url(https://raw.githubusercontent.com/Anime-Sama/IMG/img/contenu/rent-a-girlfriend.jpg); width: 160px; height: 230px; top: 25%; left: 65%; animation-duration: 9s; animation-delay: -3s; }
+.fc1 { background: center/cover url(../../public/img/TheDailyLifeOfTheImmortalKing.webp); width: 180px; height: 260px; top: 15%; left: 15%; animation-duration: 6s; animation-delay: 0s; }
+.fc2 { background: center/cover url(../../public/img/JeVeuxMangerTonPancréas.webp); width: 150px; height: 220px; top: 10%; left: 40%; animation-duration: 7s; animation-delay: -2s; }
+.fc3 { background: center/cover url(../../public/img/ranma.webp); width: 200px; height: 280px; top: 45%; left: 25%; animation-duration: 8s; animation-delay: -4s; }
+.fc4 { background: center/cover url(../../public/img/jjk.webp); width: 140px; height: 200px; top: 50%; left: 55%; animation-duration: 5s; animation-delay: -1s; }
+.fc5 { background: center/cover url(../../public/img/parasit.webp); width: 160px; height: 230px; top: 25%; left: 65%; animation-duration: 9s; animation-delay: -3s; }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
