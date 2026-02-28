@@ -8,7 +8,9 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SaisonsController;
 use App\Http\Controllers\MalisteController;
 
-Route::view('/', 'welcome', ['nmb' => 0]);
+Route::get('/', function () {
+    return view('pages.accueil', ['nmb' => 0]);
+})->name('accueil');
 
 Route::controller(UsersController::class)->group(function () {
     Route::get('/register', 'create')->name('register');
