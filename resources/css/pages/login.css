@@ -456,6 +456,17 @@ nav {
     color: #ff4757;
 }
 
+/* ── Alert error ── */
+.alert-error {
+    padding: 12px 16px;
+    background: rgba(230, 57, 70, 0.08);
+    border: 1px solid rgba(230, 57, 70, 0.35);
+    border-radius: 2px;
+    font-size: 0.82rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+}
+
 /* ── Divider ── */
 .divider {
     height: 1px;

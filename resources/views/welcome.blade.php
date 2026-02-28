@@ -26,8 +26,31 @@
       <li><a href="#">Ma Liste</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="{{ url('/login') }}" class="btn btn-ghost">Connexion</a>
-      <a href="{{ url('/register') }}" class="btn btn-primary">S'inscrire</a>
+      @auth
+        <div class="btn-me-wrapper">
+          <div class="btn-me">
+            <div class="btn-me-avatar">{{ strtoupper(substr(auth()->user()->pseudo, 0, 1)) }}</div>
+            <span class="btn-me-pseudo">{{ auth()->user()->pseudo }}</span>
+            <svg class="btn-me-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="btn-me-dropdown">
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button type="submit" class="btn-me-logout">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                </svg>
+                Déconnexion
+              </button>
+            </form>
+          </div>
+        </div>
+      @else
+        <a href="{{ url('/login') }}" class="btn btn-ghost">Connexion</a>
+        <a href="{{ url('/register') }}" class="btn btn-primary">S'inscrire</a>
+      @endauth
     </div>
   </nav>
 
