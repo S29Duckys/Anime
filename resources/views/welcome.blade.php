@@ -20,10 +20,10 @@
     <a href="{{ url('/') }}" class="logo">Try<span>Anime</span></a>
     <ul class="nav-links">
       <li><a href="/catalogue">Catalogue</a></li>
-      <li><a href="#">Tendances</a></li>
-      <li><a href="#">Genres</a></li>
-      <li><a href="#">Saisons</a></li>
-      <li><a href="#">Ma Liste</a></li>
+      <li><a href="/tendances">Tendances</a></li>
+      <li><a href="/genres">Genres</a></li>
+      <li><a href="/saisons">Saisons</a></li>
+      <li><a href="/maliste">Ma Liste</a></li>
     </ul>
     <div class="nav-actions">
       @auth
