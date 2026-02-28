@@ -61,7 +61,7 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
-        return redirect()->route('login')->with('success', 'Inscription réussie !');
+        
+        return redirect("/login");
     }
 }
