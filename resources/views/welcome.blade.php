@@ -77,7 +77,7 @@
       <p class="hero-desc">Des milliers d'animes, des classiques aux dernières sorties. Crée ta watchlist, note tes séries et découvre ta prochaine obsession.</p>
       <div class="hero-cta">
         <a href="#" class="btn btn-primary">Commencer à regarder</a>
-        <a href="#" class="btn btn-ghost">Explorer le catalogue</a>
+        <a href="/catalogue" class="btn btn-ghost">Explorer le catalogue</a>
       </div>
       <div class="hero-stats">
         <div>
