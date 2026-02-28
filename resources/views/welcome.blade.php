@@ -19,7 +19,7 @@
   <nav>
     <a href="{{ url('/') }}" class="logo">Try<span>Anime</span></a>
     <ul class="nav-links">
-      <li><a href="#">Catalogue</a></li>
+      <li><a href="/catalogue">Catalogue</a></li>
       <li><a href="#">Tendances</a></li>
       <li><a href="#">Genres</a></li>
       <li><a href="#">Saisons</a></li>

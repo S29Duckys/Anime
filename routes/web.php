@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CatalogueController;
 
 Route::get('/', function () {
     $nmb = 0;
@@ -15,3 +16,5 @@ Route::get('/login', [UsersController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UsersController::class, 'login'])->name('login');
 
 Route::post('/logout', [UsersController::class, 'logout'])->name('logout');
+
+Route::get('/catalogue', [CatalogueController::class, 'catalogue'])->name('catalogue');
