@@ -8,10 +8,8 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SaisonsController;
 use App\Http\Controllers\MalisteController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AccueilController;
 
-Route::get('/', function () {
-    return view('pages.accueil', ['nmb' => 0]);
-})->name('accueil');
 
 Route::get('/cgu', function () {
     return view('pages.CGU');
@@ -20,7 +18,6 @@ Route::get('/cgu', function () {
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
-
 
 Route::controller(UsersController::class)->group(function () {
     Route::get('/register', 'create')->name('register');
@@ -36,7 +33,7 @@ Route::get('/tendances', [TendancesController::class, 'tendances'])->name('tenda
 Route::get('/genres',[GenreController::class,'genres'])->name('genres');
 Route::get('/saisons',[SaisonsController::class,'saisons'])->name('saisons');
 Route::get('/maliste', [MalisteController::class, 'maliste'])->name('maliste');
-
+Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/',      [AdminController::class, 'index'])->name('admin.index');
