@@ -28,6 +28,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/settings','settings')->name('settings');
 });
 
+Route::get('/anime/{id}', [AnimeControlleur::class, 'show'])->name('anime.show');
 Route::get('/catalogue', [CatalogueController::class, 'catalogue'])->name('catalogue');
 Route::get('/tendances', [TendancesController::class, 'tendances'])->name('tendances');
 Route::get('/genres',[GenreController::class,'genres'])->name('genres');
