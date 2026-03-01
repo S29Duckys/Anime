@@ -10,7 +10,8 @@ class AccueilController extends Controller
 {
     public function index()
     {
-        $anime = DB::table('info_anime')->get();
-        return view('pages.accueil',['nmb' => 0, 'getAnime' => $anime]);
+        $anime = DB::table('info_anime')->limit(5)->get();
+        $count = $anime->count();
+        return view('pages.accueil',['nmb' => 0, 'getAnime' => $anime,'countAnime' => $count]);
     }
 }

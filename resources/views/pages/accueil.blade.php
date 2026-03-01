@@ -48,18 +48,20 @@
   <!-- TRENDING -->
   <section>
     <div class="section-header">
-      <h2 class="section-title">Tendances <span>cette semaine</span> {{ $nmb }}</h2>
-      <a href="#" class="section-link">Voir tout</a>
+      <h2 class="section-title">Tendances <span>cette semaine</span> {{ $countAnime }}</h2>
+      <a href="/catalogue" class="section-link">Voir tout</a>
     </div>
     <div class="anime-grid">
 
-      <div class="anime-card">
+
+      @foreach ($getAnime as $elem)
+        <div class="anime-card">
         <div class="anime-rank">01</div>
         <div class="new-badge">Nouveau</div>
-        <img src="https://via.placeholder.com/240x360/1a0a0a/e63946?text=ANIME" alt="Anime 1">
+        <img src="{{$elem->image_url}}" alt="Anime 1">
         <div class="anime-card-info">
-          <div class="anime-genre">Shonen · Action</div>
-          <div class="anime-name">Jujutsu Kaisen S3</div>
+          <div class="anime-genre">{{$elem->genre}}</div>
+          <div class="anime-name">{{$elem->title}}</div>
           <div class="anime-meta">
             <span class="rating">★ 9.4</span>
             <span>24 ép.</span>
@@ -67,65 +69,7 @@
           </div>
         </div>
       </div>
-
-      <div class="anime-card">
-        <div class="anime-rank">02</div>
-        <img src="https://via.placeholder.com/240x360/0a1a0a/ff6b35?text=ANIME" alt="Anime 2">
-        <div class="anime-card-info">
-          <div class="anime-genre">Fantasy · Aventure</div>
-          <div class="anime-name">Frieren : Beyond Journey's End</div>
-          <div class="anime-meta">
-            <span class="rating">★ 9.7</span>
-            <span>28 ép.</span>
-            <span>2024</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="anime-card">
-        <div class="anime-rank">03</div>
-        <div class="new-badge">ÉP.</div>
-        <img src="https://via.placeholder.com/240x360/0a0a1a/7c5cbf?text=ANIME" alt="Anime 3">
-        <div class="anime-card-info">
-          <div class="anime-genre">Sci-Fi · Mecha</div>
-          <div class="anime-name">Neon Genesis Evangelion</div>
-          <div class="anime-meta">
-            <span class="rating">★ 9.0</span>
-            <span>26 ép.</span>
-            <span>Classique</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="anime-card">
-        <div class="anime-rank">04</div>
-        <img src="https://via.placeholder.com/240x360/1a1a0a/f4c430?text=ANIME" alt="Anime 4">
-        <div class="anime-card-info">
-          <div class="anime-genre">Romance · Slice of Life</div>
-          <div class="anime-name">Bocchi the Rock!</div>
-          <div class="anime-meta">
-            <span class="rating">★ 9.1</span>
-            <span>12 ép.</span>
-            <span>2022</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="anime-card">
-        <div class="anime-rank">05</div>
-        <div class="new-badge">TOP</div>
-        <img src="https://via.placeholder.com/240x360/150a0a/e63946?text=ANIME" alt="Anime 5">
-        <div class="anime-card-info">
-          <div class="anime-genre">Seinen · Thriller</div>
-          <div class="anime-name">Vinland Saga S2</div>
-          <div class="anime-meta">
-            <span class="rating">★ 9.5</span>
-            <span>24 ép.</span>
-            <span>2023</span>
-          </div>
-        </div>
-      </div>
-
+      @endforeach
     </div>
   </section>
 
