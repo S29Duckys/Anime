@@ -126,6 +126,191 @@ nav {
     gap: 14px;
     align-items: center;
 }
+/* ── Bouton profil "Me" ── */
+.btn-me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 14px 5px 5px;
+    background: rgba(230, 57, 70, 0.05);
+    border: 1px solid rgba(230, 57, 70, 0.2);
+    border-radius: 100px;
+    text-decoration: none;
+    cursor: none;
+    transition:
+        background 0.25s,
+        border-color 0.25s,
+        box-shadow 0.25s;
+    position: relative;
+}
+
+.btn-me:hover {
+    background: rgba(230, 57, 70, 0.1);
+    border-color: rgba(230, 57, 70, 0.5);
+    box-shadow: 0 0 18px rgba(230, 57, 70, 0.18);
+}
+
+.btn-me-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.05rem;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow:
+        0 0 0 2px rgba(230, 57, 70, 0.3),
+        0 0 10px rgba(230, 57, 70, 0.35);
+    animation: me-ring-pulse 3s ease-in-out infinite;
+}
+
+.btn-me:hover .btn-me-avatar {
+    box-shadow:
+        0 0 0 2px rgba(255, 107, 53, 0.55),
+        0 0 16px rgba(230, 57, 70, 0.55);
+}
+
+.btn-me-pseudo {
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.btn-me:hover .btn-me-pseudo {
+    color: #fff;
+}
+
+@keyframes me-ring-pulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 2px rgba(230, 57, 70, 0.3),
+            0 0 10px rgba(230, 57, 70, 0.35);
+    }
+    50% {
+        box-shadow:
+            0 0 0 4px rgba(230, 57, 70, 0.12),
+            0 0 18px rgba(230, 57, 70, 0.5);
+    }
+}
+
+.btn-me-chevron {
+    width: 11px;
+    height: 11px;
+    color: var(--muted);
+    transition:
+        transform 0.25s,
+        color 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-me:hover .btn-me-chevron {
+    transform: rotate(180deg);
+    color: var(--accent);
+}
+
+/* ── Dropdown wrapper ── */
+.btn-me-wrapper {
+    position: relative;
+}
+
+/* pont invisible qui comble le gap entre le bouton et le dropdown */
+.btn-me-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+.btn-me-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 180px;
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 6px;
+    padding: 6px;
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(230, 57, 70, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    z-index: 200;
+}
+
+.btn-me-dropdown:hover {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.btn-me-wrapper:hover .btn-me-dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* petit triangle */
+.btn-me-dropdown::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: 18px;
+    width: 9px;
+    height: 9px;
+    background: var(--surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+    transform: rotate(45deg);
+}
+
+.btn-me-logout {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    cursor: none;
+    text-transform: uppercase;
+    transition:
+        background 0.15s,
+        color 0.15s;
+    text-align: left;
+}
+
+.btn-me-logout:hover {
+    background: rgba(230, 57, 70, 0.1);
+    color: var(--accent);
+}
+
+.btn-me-logout svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
 
 /* =============================================
    BOUTONS
@@ -249,8 +434,7 @@ nav {
     animation-delay: 0s;
 }
 .fc2 {
-    background: center/cover
-        url(../../public/img/JeVeuxMangerTonPancréas.webp);
+    background: center/cover url(../../public/img/JeVeuxMangerTonPancréas.webp);
     width: 150px;
     height: 220px;
     top: 10%;
@@ -259,8 +443,7 @@ nav {
     animation-delay: -2s;
 }
 .fc3 {
-    background: center/cover
-        url(../../public/img/jjk.webp);
+    background: center/cover url(../../public/img/jjk.webp);
     width: 200px;
     height: 280px;
     top: 45%;
@@ -269,8 +452,7 @@ nav {
     animation-delay: -4s;
 }
 .fc4 {
-    background: center/cover
-        url(../../public/img/ranma.webp);
+    background: center/cover url(../../public/img/ranma.webp);
     width: 140px;
     height: 200px;
     top: 50%;
@@ -279,8 +461,7 @@ nav {
     animation-delay: -1s;
 }
 .fc5 {
-    background: center/cover
-        url(../../public/img/parasit.webp);
+    background: center/cover url(../../public/img/parasit.webp);
     width: 160px;
     height: 230px;
     top: 25%;

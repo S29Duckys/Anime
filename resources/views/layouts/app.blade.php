@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TryAnime — Accueil</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  @vite(['resources/css/app.css','resources/css/login.css','resources/css/register.css','resources/js/app.js','resources/js/components/cursorAnimation.js','resources/js/pages/login.js','resources/js/pages/register.js'])
-
+  @vite(['resources/css/app.css','resources/css/admin/dashboard.css','resources/css/pages/login.css','resources/css/pages/register.css','resources/css/pages/catalogue.css','resources/js/app.js','resources/js/components/cursorAnimation.js','resources/js/pages/login.js','resources/js/pages/register.js','resources/js/admin/dashboard.js','resources/js/pages/catalogue.js'])
+  @stack('styles')
+  @stack('scripts')
 </head>
 
-<body>
+<body>  
 
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursorRing"></div>
@@ -37,7 +38,11 @@
                     <div class="btn-me-dropdown">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
+                            @if(auth()->user()->isAdmin)
+                                <a href="/admin" class="btn-me-logout">ADMIN</a>
+                            @endif
                             <button type="submit" class="btn-me-logout">Déconnexion</button>
+     
                         </form>
                     </div>
                 </div>
