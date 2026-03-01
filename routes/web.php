@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\TendancesController;
@@ -11,6 +12,11 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('pages.accueil', ['nmb' => 0]);
 })->name('accueil');
+
+Route::get('/cgu', function () {
+    return view('pages.CGU');
+})->name('cgu');
+
 
 Route::controller(UsersController::class)->group(function () {
     Route::get('/register', 'create')->name('register');

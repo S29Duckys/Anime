@@ -82,7 +82,7 @@ nav {
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 20px 48px;
+    padding: 12px 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -91,15 +91,15 @@ nav {
 }
 
 .logo {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 2rem;
-    letter-spacing: 0.1em;
-    color: var(--text);
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
-.logo span {
-    color: var(--accent);
+.logo-img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-links {

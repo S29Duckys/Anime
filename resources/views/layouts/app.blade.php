@@ -17,7 +17,9 @@
     <div class="cursor-ring" id="cursorRing"></div>
 
     <nav>
-        <a href="{{ url('/') }}" class="logo">Try<span>Anime</span></a>
+        <a href="{{ url('/') }}" class="logo">
+            <img src="{{ asset('img/logo.png') }}" alt="TryAnime" class="logo-img">
+        </a>
         <ul class="nav-links">
         <li>
             <a class="{{ ($currentPage ?? '') === 'catalogue' ? 'activeNavBar' : '' }}" href="/catalogue">Catalogue</a>
@@ -74,7 +76,7 @@
         <div class="footer-links">
             <a href="#">À propos</a>
             <a href="#">Contact</a>
-            <a href="#">CGU</a>
+            <a href="{{ url('/cgu') }}">CGU</a>
         </div>
     </footer>
 
