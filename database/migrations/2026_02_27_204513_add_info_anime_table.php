@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('info_anime', function (Blueprint $table) {
             $table->engine = "InnoDB";
-            $table->id();
+            $table->id()->primary();
             $table->string('title');
             $table->string('original_title');
             $table->string('image_url');
             $table->string('release_date');
             $table->string('genre');
+            $table->string('slug');
             $table->text('sinopsis');          
             $table->timestamps();
         });
