@@ -12,7 +12,9 @@ class MalisteController extends Controller
         $animes = collect();
 
         if (Auth::check()) {
-            $animes = Auth::user()->animeList()->latest('user_anime_list.created_at')->get();
+            /** @var \App\Models\User $user */
+            $user = Auth::user();
+            $animes = $user->animeList()->latest('user_anime_list.created_at')->get();
         }
 
         return view('pages.maliste', [
@@ -28,6 +30,7 @@ class MalisteController extends Controller
             'status' => 'in:watching,completed,planned',
         ]);
 
+        /** @var \App\Models\User $user */
         $user = Auth::user();
 
         if ($user->animeList()->where('info_anime_id', $request->info_anime_id)->exists()) {
@@ -50,14 +53,18 @@ class MalisteController extends Controller
             'rating' => 'nullable|numeric|min:0|max:10',
         ]);
 
-        Auth::user()->animeList()->updateExistingPivot($id, $request->only('status', 'progress', 'rating'));
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+        $user->animeList()->updateExistingPivot($id, $request->only('status', 'progress', 'rating'));
 
         return back()->with('success', 'Liste mise à jour !');
     }
 
     public function destroy($id)
     {
-        Auth::user()->animeList()->detach($id);
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+        $user->animeList()->detach($id);
 
         return back()->with('success', 'Anime retiré de votre liste.');
     }
