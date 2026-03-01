@@ -228,9 +228,11 @@
     <!-- Grid -->
     <div class="cat-grid" id="catGrid">
 
-      <div class="cat-card">
+
+      @foreach ($catalogueAnime as $elem)
+          <div class="cat-card">
         <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/1a0808/e63946?text=JJK" alt="Jujutsu Kaisen S3">
+          <img src="{{$elem->image_url}}" alt="Jujutsu Kaisen S3">
           <div class="cat-card-badges"><span class="cat-badge cat-badge-new">Nouveau</span></div>
           <div class="cat-card-rating">★ 9.4</div>
           <div class="cat-card-hover">
@@ -239,194 +241,12 @@
           </div>
         </div>
         <div class="cat-card-body">
-          <div class="cat-card-genre">Shonen · Action</div>
-          <div class="cat-card-title">Jujutsu Kaisen S3</div>
+          <div class="cat-card-genre">{{$elem->genre}}</div>
+          <div class="cat-card-title">{{$elem->title}}</div>
           <div class="cat-card-meta"><span>24 ép.</span><span class="dot"></span><span>2025</span><span class="dot"></span><span>MAPPA</span></div>
         </div>
       </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/080a18/7c5cbf?text=FRIEREN" alt="Frieren">
-          <div class="cat-card-badges"><span class="cat-badge cat-badge-top">Top</span></div>
-          <div class="cat-card-rating">★ 9.7</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Fantasy · Aventure</div>
-          <div class="cat-card-title">Frieren: Beyond Journey's End</div>
-          <div class="cat-card-meta"><span>28 ép.</span><span class="dot"></span><span>2024</span><span class="dot"></span><span>Madhouse</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/0a0a1a/4a90e2?text=NGE" alt="NGE">
-          <div class="cat-card-badges"><span class="cat-badge cat-badge-classic">Classique</span></div>
-          <div class="cat-card-rating">★ 9.0</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Sci-Fi · Mecha</div>
-          <div class="cat-card-title">Neon Genesis Evangelion</div>
-          <div class="cat-card-meta"><span>26 ép.</span><span class="dot"></span><span>1995</span><span class="dot"></span><span>Gainax</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/1a1408/f4c430?text=BOCCHI" alt="Bocchi">
-          <div class="cat-card-rating">★ 9.1</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Romance · Slice of Life</div>
-          <div class="cat-card-title">Bocchi the Rock!</div>
-          <div class="cat-card-meta"><span>12 ép.</span><span class="dot"></span><span>2022</span><span class="dot"></span><span>CloverWorks</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/120808/e63946?text=VINLAND" alt="Vinland Saga">
-          <div class="cat-card-badges"><span class="cat-badge cat-badge-top">Top</span></div>
-          <div class="cat-card-rating">★ 9.5</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Seinen · Historique</div>
-          <div class="cat-card-title">Vinland Saga S2</div>
-          <div class="cat-card-meta"><span>24 ép.</span><span class="dot"></span><span>2023</span><span class="dot"></span><span>MAPPA</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/080f08/44c767?text=HXH" alt="HxH">
-          <div class="cat-card-badges"><span class="cat-badge cat-badge-classic">Classique</span></div>
-          <div class="cat-card-rating">★ 9.1</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Shonen · Aventure</div>
-          <div class="cat-card-title">Hunter × Hunter (2011)</div>
-          <div class="cat-card-meta"><span>148 ép.</span><span class="dot"></span><span>2011</span><span class="dot"></span><span>Madhouse</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/080818/7c5cbf?text=AOT" alt="AOT">
-          <div class="cat-card-badges"><span class="cat-badge cat-badge-top">Top</span></div>
-          <div class="cat-card-rating">★ 9.3</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Dark Fantasy · Action</div>
-          <div class="cat-card-title">Attack on Titan: Final Season</div>
-          <div class="cat-card-meta"><span>87 ép.</span><span class="dot"></span><span>2013</span><span class="dot"></span><span>MAPPA</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/180808/ff6b35?text=DANDADAN" alt="Dandadan">
-          <div class="cat-card-badges"><span class="cat-badge cat-badge-new">Nouveau</span></div>
-          <div class="cat-card-rating">★ 8.9</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Action · Comédie</div>
-          <div class="cat-card-title">Dandadan</div>
-          <div class="cat-card-meta"><span>12 ép.</span><span class="dot"></span><span>2024</span><span class="dot"></span><span>Science SARU</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/08140a/44c767?text=DEMON" alt="Demon Slayer">
-          <div class="cat-card-rating">★ 8.7</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Shonen · Action</div>
-          <div class="cat-card-title">Demon Slayer: Kimetsu no Yaiba</div>
-          <div class="cat-card-meta"><span>44 ép.</span><span class="dot"></span><span>2019</span><span class="dot"></span><span>Ufotable</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/0a0814/a855f7?text=RANMA" alt="Ranma">
-          <div class="cat-card-badges"><span class="cat-badge cat-badge-classic">Classique</span></div>
-          <div class="cat-card-rating">★ 8.1</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Comédie · Romance</div>
-          <div class="cat-card-title">Ranma ½</div>
-          <div class="cat-card-meta"><span>161 ép.</span><span class="dot"></span><span>1989</span><span class="dot"></span><span>Fuji TV</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/14080a/e63946?text=PARASYTE" alt="Parasyte">
-          <div class="cat-card-rating">★ 8.5</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Seinen · Horreur</div>
-          <div class="cat-card-title">Parasyte: The Maxim</div>
-          <div class="cat-card-meta"><span>24 ép.</span><span class="dot"></span><span>2014</span><span class="dot"></span><span>Madhouse</span></div>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-card-img">
-          <img src="https://via.placeholder.com/240x360/080a18/4a90e2?text=BLUE+LOCK" alt="Blue Lock">
-          <div class="cat-card-badges"><span class="cat-badge cat-badge-ep">ÉP. 2</span></div>
-          <div class="cat-card-rating">★ 8.3</div>
-          <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
-          </div>
-        </div>
-        <div class="cat-card-body">
-          <div class="cat-card-genre">Sports · Shonen</div>
-          <div class="cat-card-title">Blue Lock S2</div>
-          <div class="cat-card-meta"><span>24 ép.</span><span class="dot"></span><span>2025</span><span class="dot"></span><span>8bit</span></div>
-        </div>
+      @endforeach
       </div>
 
     </div><!-- /cat-grid -->
@@ -434,11 +254,11 @@
     <!-- PAGINATION -->
     <nav class="cat-pagination">
       <a class="pag-btn disabled">←</a>
-      <a href="#" class="pag-btn active">1</a>
-      <a href="#" class="pag-btn">2</a>
-      <a href="#" class="pag-btn">3</a>
+      <a href="?page=1" class="pag-btn active">1</a>
+      <a href="?page=2" class="pag-btn">2</a>
+      <a href="?page=3" class="pag-btn">3</a>
       <span class="pag-dots">···</span>
-      <a href="#" class="pag-btn">301</a>
+      <a href="#" class="pag-btn">{{$totalPage}}</a>
       <a href="#" class="pag-btn">→</a>
     </nav>
 
