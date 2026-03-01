@@ -17,6 +17,10 @@ Route::get('/cgu', function () {
     return view('pages.CGU');
 })->name('cgu');
 
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+
 
 Route::controller(UsersController::class)->group(function () {
     Route::get('/register', 'create')->name('register');

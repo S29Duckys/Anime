@@ -1,0 +1,242 @@
+/* =============================================
+   ABOUT PAGE
+   ============================================= */
+
+.about-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+}
+
+/* HERO */
+.about-hero {
+    text-align: center;
+    padding: 60px 0 0;
+}
+
+.about-hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    background: rgba(230, 57, 70, 0.1);
+    border: 1px solid rgba(230, 57, 70, 0.25);
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.about-hero h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: 0.05em;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+.about-hero h1 span {
+    color: var(--accent);
+}
+
+.about-hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.5);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* SECTIONS */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.about-section-header {
+    text-align: center;
+}
+
+.about-section-header h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.05em;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.about-section-header p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.45);
+}
+
+/* INTRO (2 colonnes) */
+.about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.05em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+}
+
+/* STATS */
+.about-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.about-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+
+.about-stat:hover {
+    border-color: rgba(230, 57, 70, 0.3);
+}
+
+.stat-value {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.4rem;
+    color: #fff;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stat-value span {
+    color: var(--accent);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4);
+}
+
+/* FEATURES */
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.about-feature {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.about-feature:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(230, 57, 70, 0.25);
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+}
+
+.about-feature h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.about-feature p {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+}
+
+/* TECH */
+.about-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.tech-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: border-color 0.2s;
+}
+
+.tech-card:hover {
+    border-color: rgba(230, 57, 70, 0.3);
+}
+
+.tech-name {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    color: #fff;
+}
+
+.tech-role {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+}
+
+/* CONTACT */
+.about-contact {
+    text-align: center;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 56px 40px;
+}
+
+.about-contact h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.about-contact p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    max-width: 500px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.about-contact-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}

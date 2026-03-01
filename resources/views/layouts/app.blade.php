@@ -11,8 +11,9 @@
   @stack('scripts')
 </head>
 
-<body>  
+<body>
 
+    <div class="site-bg-glows" aria-hidden="true"></div>
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
@@ -74,8 +75,8 @@
         <div class="footer-logo">Try<span>Anime</span></div>
         <div class="footer-text">© 2025 TryAnime — Projet Laravel Personnel</div>
         <div class="footer-links">
-            <a href="#">À propos</a>
-            <a href="#">Contact</a>
+            <a href="{{ url('/about') }}">À propos</a>
+            <a href="">Contact</a>
             <a href="{{ url('/cgu') }}">CGU</a>
         </div>
     </footer>
