@@ -18,10 +18,19 @@ class InfoAnime extends Model
     ];
 
     public $timestamps = false;
+
     public function scopeLastFive($query)
     {
         return $query->orderBy('id', 'desc')->limit(5);
     }
 
-  
+    public function videos()
+    {
+        return $this->hasMany(Video::class, 'anime_id');
+    }
+
+    public static function findByTitle($title)
+    {
+        return self::where('title', $title)->first();
+    }
 }
