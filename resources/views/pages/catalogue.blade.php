@@ -236,7 +236,16 @@
           <div class="cat-card-rating">★ 9.4</div>
           <div class="cat-card-hover">
             <a href="/anime/{{$elem->slug}}" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
-            <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
+            @auth
+            <form method="POST" action="{{ route('maliste.store') }}" style="display:inline;">
+                @csrf
+                <input type="hidden" name="info_anime_id" value="{{ $elem->id }}">
+                <input type="hidden" name="status" value="planned">
+                <button type="submit" class="cat-hover-btn cat-hover-list">+ Ma liste</button>
+            </form>
+            @else
+            <a href="{{ route('login') }}" class="cat-hover-btn cat-hover-list">+ Ma liste</a>
+            @endauth
           </div>
         </div>
         <div class="cat-card-body">

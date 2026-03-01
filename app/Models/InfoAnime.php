@@ -33,4 +33,11 @@ class InfoAnime extends Model
     {
         return self::where('slug', $title)->first();
     }
+
+    public function usersWhoListed()
+    {
+        return $this->belongsToMany(User::class, 'user_anime_list')
+                    ->withPivot('status', 'progress', 'rating')
+                    ->withTimestamps();
+    }
 }

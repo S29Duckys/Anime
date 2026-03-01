@@ -1,0 +1,584 @@
+/* =============================================
+     MA LISTE — PAGE STYLES
+     ============================================= */
+
+/* PAGE HEADER */
+.ml-header {
+    padding: 160px 48px 48px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ml-header-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse 55% 100% at 80% 0%,
+            rgba(230, 57, 70, 0.09) 0%,
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse 30% 60% at 10% 80%,
+            rgba(255, 107, 53, 0.05) 0%,
+            transparent 60%
+        ),
+        linear-gradient(180deg, transparent 40%, var(--bg) 100%);
+    pointer-events: none;
+}
+
+.ml-header-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        transparent 100%
+    );
+}
+
+.ml-header-deco {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 14rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.02);
+    letter-spacing: 0.05em;
+    user-select: none;
+    pointer-events: none;
+}
+
+.ml-header-inner {
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.ml-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.ml-breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.ml-breadcrumb a:hover {
+    color: var(--accent);
+}
+
+.ml-breadcrumb .sep {
+    color: rgba(255, 255, 255, 0.15);
+}
+
+.ml-breadcrumb .current {
+    color: var(--text);
+}
+
+.ml-h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.ml-h1 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.ml-h1 .stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    color: transparent;
+}
+
+.ml-header-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    animation: fadeUp 0.8s ease 0.15s forwards;
+    opacity: 0;
+}
+
+.ml-count-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.ml-count-badge strong {
+    color: var(--text);
+}
+
+/* =============================================
+     CONTENT WRAPPER
+     ============================================= */
+.ml-content {
+    padding: 0 48px 80px;
+}
+
+/* =============================================
+     TABS
+     ============================================= */
+.ml-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0;
+}
+
+.ml-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: none;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.ml-tab::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.ml-tab:hover {
+    color: var(--text);
+}
+
+.ml-tab.active {
+    color: var(--text);
+}
+
+.ml-tab.active::after {
+    transform: scaleX(1);
+}
+
+.ml-tab-count {
+    font-size: 0.65rem;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 7px;
+    border-radius: 10px;
+    color: var(--muted);
+}
+
+.ml-tab.active .ml-tab-count {
+    background: rgba(230, 57, 70, 0.15);
+    color: var(--accent);
+}
+
+/* =============================================
+     TOOLBAR
+     ============================================= */
+.ml-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 12px 0;
+}
+
+.ml-result-txt {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+}
+
+.ml-result-txt strong {
+    color: var(--text);
+}
+
+.ml-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ml-sort-select {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: none;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.ml-sort-select:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* =============================================
+     LIST ITEMS
+     ============================================= */
+.ml-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ml-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+
+.ml-item:hover {
+    border-color: rgba(230, 57, 70, 0.2);
+    background: rgba(15, 15, 26, 0.8);
+    transform: translateX(4px);
+}
+
+/* Rank */
+.ml-item-rank {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.06);
+    min-width: 36px;
+    text-align: center;
+    transition: color 0.25s;
+}
+
+.ml-item:hover .ml-item-rank {
+    color: rgba(230, 57, 70, 0.2);
+}
+
+/* Image */
+.ml-item-img {
+    position: relative;
+    width: 52px;
+    height: 72px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.ml-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85);
+    transition: filter 0.3s;
+}
+
+.ml-item:hover .ml-item-img img {
+    filter: saturate(1);
+}
+
+.ml-status-dot {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--surface);
+}
+
+.ml-status-watching {
+    background: #4ade80;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+}
+
+.ml-status-completed {
+    background: #60a5fa;
+    box-shadow: 0 0 6px rgba(96, 165, 250, 0.4);
+}
+
+.ml-status-planned {
+    background: #fbbf24;
+    box-shadow: 0 0 6px rgba(251, 191, 36, 0.4);
+}
+
+/* Info */
+.ml-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ml-item-genre {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3px;
+}
+
+.ml-item-title {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--text);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ml-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.68rem;
+    color: var(--muted);
+}
+
+.ml-item-meta .dot {
+    width: 3px;
+    height: 3px;
+    background: var(--muted);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+/* Progress */
+.ml-item-progress {
+    width: 160px;
+    flex-shrink: 0;
+}
+
+.ml-progress-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.ml-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.ml-progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.ml-progress-complete {
+    background: linear-gradient(90deg, #4ade80, #22c55e);
+}
+
+.ml-progress-text {
+    font-size: 0.65rem;
+    color: var(--muted);
+}
+
+/* Rating */
+.ml-item-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text);
+    min-width: 50px;
+    justify-content: center;
+}
+
+.ml-star {
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+/* Status badge */
+.ml-item-status {
+    min-width: 80px;
+    text-align: center;
+}
+
+.ml-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+}
+
+.ml-badge-watching {
+    background: rgba(74, 222, 128, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.ml-badge-completed {
+    background: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.ml-badge-planned {
+    background: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+/* Actions */
+.ml-item-actions {
+    display: flex;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.ml-item:hover .ml-item-actions {
+    opacity: 1;
+}
+
+.ml-action-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+    cursor: none;
+    transition: all 0.2s;
+}
+
+.ml-action-btn:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.ml-action-delete:hover {
+    border-color: rgba(230, 57, 70, 0.3);
+    color: var(--accent);
+    background: rgba(230, 57, 70, 0.08);
+}
+
+/* =============================================
+     EMPTY STATE
+     ============================================= */
+.ml-empty {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--muted);
+}
+
+.ml-empty svg {
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.ml-empty h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.8rem;
+    color: var(--text);
+    margin-bottom: 10px;
+    letter-spacing: 0.04em;
+}
+
+.ml-empty p {
+    font-size: 0.85rem;
+    margin-bottom: 28px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* =============================================
+     ALERTS
+     ============================================= */
+.ml-alert {
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 20px;
+}
+
+.ml-alert-success {
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+}
+
+.ml-alert-warning {
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+}
+
+/* Title as link */
+a.ml-item-title {
+    display: block;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a.ml-item-title:hover {
+    color: var(--accent);
+}

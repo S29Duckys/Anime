@@ -50,5 +50,12 @@ class User extends Authenticatable
     public function isAdmin(): bool
     {
         return $this->isAdmin === true;
-    }   
+    }
+
+    public function animeList()
+    {
+        return $this->belongsToMany(InfoAnime::class, 'user_anime_list')
+                    ->withPivot('status', 'progress', 'rating')
+                    ->withTimestamps();
+    }
 }

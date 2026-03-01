@@ -35,6 +35,11 @@ Route::get('/tendances', [TendancesController::class, 'tendances'])->name('tenda
 Route::get('/genres',[GenreController::class,'genres'])->name('genres');
 Route::get('/saisons',[SaisonsController::class,'saisons'])->name('saisons');
 Route::get('/maliste', [MalisteController::class, 'maliste'])->name('maliste');
+Route::middleware(['auth'])->group(function () {
+    Route::post('/maliste', [MalisteController::class, 'store'])->name('maliste.store');
+    Route::put('/maliste/{id}', [MalisteController::class, 'update'])->name('maliste.update');
+    Route::delete('/maliste/{id}', [MalisteController::class, 'destroy'])->name('maliste.destroy');
+});
 Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {

@@ -1,0 +1,268 @@
+/* =============================================
+     GENRES — PAGE STYLES
+     ============================================= */
+
+/* PAGE HEADER */
+.gr-header {
+    padding: 160px 48px 48px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gr-header-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse 55% 100% at 80% 0%,
+            rgba(230, 57, 70, 0.09) 0%,
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse 30% 60% at 10% 80%,
+            rgba(255, 107, 53, 0.05) 0%,
+            transparent 60%
+        ),
+        linear-gradient(180deg, transparent 40%, var(--bg) 100%);
+    pointer-events: none;
+}
+
+.gr-header-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        transparent 100%
+    );
+}
+
+.gr-header-deco {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.02);
+    letter-spacing: 0.05em;
+    user-select: none;
+    pointer-events: none;
+}
+
+.gr-header-inner {
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.gr-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.gr-breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.gr-breadcrumb a:hover {
+    color: var(--accent);
+}
+
+.gr-breadcrumb .sep {
+    color: rgba(255, 255, 255, 0.15);
+}
+
+.gr-breadcrumb .current {
+    color: var(--text);
+}
+
+.gr-h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.gr-h1 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.gr-subtitle {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 18px;
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.8s ease 0.15s forwards;
+    opacity: 0;
+}
+
+/* =============================================
+     CONTENT
+     ============================================= */
+.gr-content {
+    padding: 0 48px 80px;
+}
+
+/* =============================================
+     GRID
+     ============================================= */
+.gr-grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+/* =============================================
+     CARD
+     ============================================= */
+.gr-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: none;
+    position: relative;
+    overflow: hidden;
+    transition:
+        border-color 0.3s,
+        transform 0.3s,
+        background 0.3s;
+}
+
+.gr-card:hover {
+    border-color: rgba(230, 57, 70, 0.25);
+    transform: translateY(-3px);
+    background: rgba(15, 15, 26, 0.9);
+}
+
+/* accent bar bottom */
+.gr-card::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.gr-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* glow on hover */
+.gr-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 30% 50%,
+        rgba(230, 57, 70, 0.04) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.gr-card:hover::after {
+    opacity: 1;
+}
+
+/* Icon */
+.gr-card-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: border-color 0.3s, transform 0.3s, color 0.3s;
+}
+
+.gr-card-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.gr-card:hover .gr-card-icon {
+    border-color: rgba(230, 57, 70, 0.3);
+    transform: scale(1.08);
+    color: var(--accent);
+}
+
+/* Info */
+.gr-card-info {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.gr-card-name {
+    font-family: "Inter", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    margin-bottom: 3px;
+    transition: color 0.2s;
+}
+
+.gr-card:hover .gr-card-name {
+    color: #fff;
+}
+
+.gr-card-count {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+}
+
+/* Arrow */
+.gr-card-arrow {
+    font-size: 1.1rem;
+    color: var(--muted);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.25s, transform 0.25s, color 0.25s;
+    position: relative;
+    z-index: 1;
+}
+
+.gr-card:hover .gr-card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--accent);
+}
