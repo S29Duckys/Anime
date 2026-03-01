@@ -228,7 +228,6 @@
     <!-- Grid -->
     <div class="cat-grid" id="catGrid">
 
-
       @foreach ($catalogueAnime as $elem)
           <div class="cat-card">
         <div class="cat-card-img">
@@ -252,15 +251,17 @@
     </div><!-- /cat-grid -->
 
     <!-- PAGINATION -->
-    <nav class="cat-pagination">
-      <a class="pag-btn disabled">←</a>
-      <a href="?page=1" class="pag-btn active">1</a>
-      <a href="?page=2" class="pag-btn">2</a>
-      <a href="?page=3" class="pag-btn">3</a>
-      <span class="pag-dots">···</span>
-      <a href="?page={{$totalPage}}" class="pag-btn">{{$totalPage}}</a>
-      <a href="#" class="pag-btn">→</a>
-    </nav>
+<nav class="cat-pagination">
+    <a class="pag-btn disabled">←</a>
+
+    <a href="?page=1" class="pag-btn {{ request()->query('page', 1) == 1 ? 'active' : '' }}">1</a>
+    <a href="?page=2" class="pag-btn {{ request()->query('page', 1) == 2 ? 'active' : '' }}">2</a>
+    <a href="?page=3" class="pag-btn {{ request()->query('page', 1) == 3 ? 'active' : '' }}">3</a>
+    <span class="pag-dots">···</span>
+    <a href="?page={{ $totalPage }}" class="pag-btn {{ request()->query('page', 1) == $totalPage ? 'active' : '' }}">{{ $totalPage }}</a>
+
+    <a href="#" class="pag-btn">→</a>
+</nav>
 
   </div><!-- /cat-main -->
 </div><!-- /catalogue-wrap -->
