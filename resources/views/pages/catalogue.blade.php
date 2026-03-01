@@ -258,7 +258,7 @@
       <a href="?page=2" class="pag-btn">2</a>
       <a href="?page=3" class="pag-btn">3</a>
       <span class="pag-dots">···</span>
-      <a href="#" class="pag-btn">{{$totalPage}}</a>
+      <a href="?page={{$totalPage}}" class="pag-btn">{{$totalPage}}</a>
       <a href="#" class="pag-btn">→</a>
     </nav>
 
