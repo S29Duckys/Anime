@@ -14,25 +14,25 @@
 <div class="anime-page">
 
     {{-- ══════════════════════════════════ APERÇU ══════════════════════════════════ --}}
-    <section class="anime-apercu">
+        <section class="anime-apercu">
 
-        <div class="ap-heading">
-            <span class="ap-heading-title">APERÇU</span>
-            <div class="ap-heading-line"></div>
+        <div class="cat-breadcrumb">
+            <a href="{{ url('/catalogue') }}">Catalogue</a>
+            <span class="sep">/</span>
+            <span class="current">{{$anime->title}}</span>
         </div>
-
-        <div class="apercu-body">
+             <div class="apercu-body">
 
             {{-- Affiche --}}
             <div class="apercu-poster">
-                <img src="{{ asset('img/placeholder.jpg') }}" alt="Magical Girl Site">
+                <img src="{{$anime->image_url}}" alt="Magical Girl Site">
             </div>
 
             {{-- Informations --}}
             <div class="apercu-info">
 
-                <h1 class="anime-main-title">{{ $anime->title }}</h1>
-                <p class="anime-alt-title">Mahou Shoujo Site</p>
+                <h1 class="anime-main-title">{{$anime->title}}</h1>
+                <p class="anime-alt-title">--</p>
 
                 {{-- Boutons --}}
                 <div class="anime-action-btns">
@@ -74,9 +74,7 @@
                     <h2 class="anime-sub-title">SYNOPSIS</h2>
                     <hr class="anime-sub-divider">
                     <p class="anime-synopsis">
-                        Aya Asagiri est une jeune fille persécutée aussi bien à son école qu'à sa propre maison.
-                        Alors qu'un jour, elle songeait à se suicider, une page d'un mystérieux site internet,
-                        Mahou Shoujo Site, s'est ouverte sur son ordinateur lui révélant qu'elle va être une Magical Girl !
+                       {{$anime->sinopsis}}
                     </p>
                 </div>
 
@@ -84,7 +82,7 @@
                 <div class="anime-sub-section">
                     <h2 class="anime-sub-title">GENRES</h2>
                     <hr class="anime-sub-divider">
-                    <p class="anime-genres-list">Action, Drame, Psychologique, Surnaturel</p>
+                    <p class="anime-genres-list">{{$anime->genre}}</p>
                 </div>
 
             </div>

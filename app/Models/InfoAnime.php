@@ -31,6 +31,6 @@ class InfoAnime extends Model
 
     public static function findByTitle($title)
     {
-        return self::where('title', $title)->first();
+        return self::where('slug', $title)->first();
     }
 }

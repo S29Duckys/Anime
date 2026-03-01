@@ -328,7 +328,9 @@
     height: 16px;
     color: var(--muted);
     flex-shrink: 0;
-    transition: transform 0.28s ease, color 0.2s;
+    transition:
+        transform 0.28s ease,
+        color 0.2s;
 }
 
 .season-block[open] .season-arrow {
@@ -369,7 +371,9 @@
     border-radius: 3px;
     text-decoration: none;
     cursor: none;
-    transition: border-color 0.2s, background 0.2s;
+    transition:
+        border-color 0.2s,
+        background 0.2s;
 }
 
 .episode-card:hover {
@@ -419,7 +423,9 @@
     object-fit: cover;
     display: block;
     filter: saturate(0.7);
-    transition: filter 0.2s, transform 0.3s;
+    transition:
+        filter 0.2s,
+        transform 0.3s;
 }
 
 .episode-card:hover .ep-thumb img {

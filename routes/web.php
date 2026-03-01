@@ -29,7 +29,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/settings','settings')->name('settings');
 });
 
-Route::get('/anime/{id}', [AnimeController::class, 'show'])->name('anime.show');
+Route::get('/anime/{slug}', [AnimeController::class, 'show'])->name('show');
 Route::get('/catalogue', [CatalogueController::class, 'catalogue'])->name('catalogue');
 Route::get('/tendances', [TendancesController::class, 'tendances'])->name('tendances');
 Route::get('/genres',[GenreController::class,'genres'])->name('genres');

@@ -235,7 +235,7 @@
           <div class="cat-card-badges"><span class="cat-badge cat-badge-new">Nouveau</span></div>
           <div class="cat-card-rating">★ 9.4</div>
           <div class="cat-card-hover">
-            <a href="#" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
+            <a href="/anime/{{$elem->slug}}" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
             <button class="cat-hover-btn cat-hover-list">+ Ma liste</button>
           </div>
         </div>
