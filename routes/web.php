@@ -9,6 +9,7 @@ use App\Http\Controllers\SaisonsController;
 use App\Http\Controllers\MalisteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\AnimeController;
 
 
 Route::get('/cgu', function () {
@@ -28,7 +29,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/settings','settings')->name('settings');
 });
 
-Route::get('/anime/{id}', [AnimeControlleur::class, 'show'])->name('anime.show');
+Route::get('/anime/{id}', [AnimeController::class, 'show'])->name('anime.show');
 Route::get('/catalogue', [CatalogueController::class, 'catalogue'])->name('catalogue');
 Route::get('/tendances', [TendancesController::class, 'tendances'])->name('tendances');
 Route::get('/genres',[GenreController::class,'genres'])->name('genres');
