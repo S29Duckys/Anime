@@ -17,7 +17,7 @@
     </div>
 
     <div class="hero-content">
-      <div class="hero-badge">Nouveau — Saison Hiver 2025</div>
+      <div class="hero-badge">Nouveau — Saison Mars 2026</div>
       <h1 class="hero-title">
         Ton Univers<br>
         <span class="stroke">Anime</span><br>

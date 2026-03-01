@@ -8,6 +8,6 @@ class GenreController extends Controller
 {
     public function genres()
     {
-        return view('pages.genres');
+        return view('pages.genres',["currentPage" => "genres"]);
     }
 }

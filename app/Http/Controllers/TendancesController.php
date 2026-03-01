@@ -8,6 +8,6 @@ class TendancesController extends Controller
 {
 public function tendances()
     {
-        return view('pages.tendances');
+        return view('pages.tendances',["currentPage" => "tendances"]);
     }
 }

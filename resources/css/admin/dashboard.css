@@ -1,7 +1,6 @@
 html,
 body {
     height: 100%;
-    overflow: hidden; /* NO SCROLL */
     background: var(--bg);
     color: var(--text);
     font-family: "Inter", sans-serif;

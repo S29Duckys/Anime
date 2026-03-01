@@ -19,6 +19,10 @@ class UsersController extends Controller
         return view('auth.login');
     }
 
+    public function settings(){
+        return view('pages.settings');
+    }
+
     public function login(Request $request)
     {
         $credentials = $request->validate([

@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class MalisteController extends Controller
 {
     public function maliste() {
-        return view('pages.maliste');
+        return view('pages.maliste',["currentPage" => "maliste"]);
     }
 }

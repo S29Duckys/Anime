@@ -1,11 +1,5 @@
 @extends('layouts.app') 
-@push('styles')
-  @vite(['resources/css/catalogue.css'])
-@endpush
 
-@push('scripts')
-  @vite(['resources/js/pages/catalogue.js'])
-@endpush
 @section('title', 'Catalogue')
 
 @section('content')    
