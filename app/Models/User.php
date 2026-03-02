@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'id',
         'pseudo',
         'prenom',
         'nom',
@@ -55,7 +56,7 @@ class User extends Authenticatable
     public function animeList()
     {
         return $this->belongsToMany(InfoAnime::class, 'user_anime_list')
-                    ->withPivot('status', 'progress', 'rating')
-                    ->withTimestamps();
+            ->withPivot('status', 'progress', 'rating')
+            ->withTimestamps();
     }
 }

@@ -19,7 +19,8 @@ class UsersController extends Controller
         return view('auth.login');
     }
 
-    public function settings(){
+    public function settings()
+    {
         return view('pages.settings');
     }
 
@@ -42,7 +43,7 @@ class UsersController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout(); 
+        Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
@@ -59,13 +60,14 @@ class UsersController extends Controller
         ]);
 
         User::create([
+            'id' => uniqid(),
             'pseudo' => $request->pseudo,
             'prenom' => $request->prenom,
             'nom' => $request->nom,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        
+
         return redirect("/login");
     }
 }
