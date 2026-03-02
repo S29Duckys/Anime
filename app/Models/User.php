@@ -50,7 +50,7 @@ class User extends Authenticatable
     }
     public function isAdmin(): bool
     {
-        return $this->isAdmin === true;
+        return $this->role === 'admin';
     }
 
     public function animeList()

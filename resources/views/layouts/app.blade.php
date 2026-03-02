@@ -54,7 +54,7 @@
                             @if(auth()->user()->isAdmin)
                                 <a href="/admin" class="btn-me-logout">ADMIN</a>
                             @endif
-                            <a href="/settings" class="btn-me-logout">Settings</a>
+                            <a href="/settings" class="btn-me-logout">Paramètre</a>
                             <button type="submit" class="btn-me-logout">Déconnexion</button>
      
                         </form>

@@ -26,14 +26,15 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/login', 'showLoginForm')->name('login');
     Route::post('/login', 'login');
     Route::post('/logout', 'logout')->name('logout');
-    Route::get('/settings','settings')->name('settings');
+    Route::get('/settings', 'settings')->name('settings');
 });
+
 
 Route::get('/anime/{slug}', [AnimeController::class, 'show'])->name('show');
 Route::get('/catalogue', [CatalogueController::class, 'catalogue'])->name('catalogue');
 Route::get('/tendances', [TendancesController::class, 'tendances'])->name('tendances');
-Route::get('/genres',[GenreController::class,'genres'])->name('genres');
-Route::get('/saisons',[SaisonsController::class,'saisons'])->name('saisons');
+Route::get('/genres', [GenreController::class, 'genres'])->name('genres');
+Route::get('/saisons', [SaisonsController::class, 'saisons'])->name('saisons');
 Route::get('/maliste', [MalisteController::class, 'maliste'])->name('maliste');
 Route::middleware(['auth'])->group(function () {
     Route::post('/maliste', [MalisteController::class, 'store'])->name('maliste.store');

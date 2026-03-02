@@ -56,6 +56,9 @@ document
             card.style.opacity = !q || title.includes(q) ? "1" : "0.2";
             card.style.pointerEvents = !q || title.includes(q) ? "" : "none";
         });
+        const res = fetch("/search", {
+            method: "GET",
+        });
     });
 
 // Chip dismiss
