@@ -8,7 +8,8 @@ use App\Models\InfoAnime;
 
 class CatalogueController extends Controller
 {
-    public function catalogue(Request $request) {
+    public function catalogue(Request $request)
+    {
         $query = InfoAnime::query();
 
         if ($request->has('genre') && $request->genre !== '') {

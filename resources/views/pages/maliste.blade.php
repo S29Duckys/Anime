@@ -13,7 +13,7 @@
   <div class="ml-header-inner">
     <div>
       <div class="ml-breadcrumb">
-        <a href="{{ url('/') }}">Accueil</a>
+        <a href="{{ route('accueil') }}">Accueil</a>
         <span class="sep">/</span>
         <span class="current">Ma Liste</span>
       </div>

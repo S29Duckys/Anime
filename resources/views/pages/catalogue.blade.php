@@ -13,7 +13,7 @@
   <div class="cat-header-inner">
     <div>
       <div class="cat-breadcrumb">
-        <a href="{{ url('/') }}">Accueil</a>
+        <a href="{{ route('accueil') }}">Accueil</a>
         <span class="sep">/</span>
         <span class="current">Catalogue</span>
       </div>

@@ -26,7 +26,7 @@
       <p class="hero-desc">Des milliers d'animes, des classiques aux dernières sorties. Crée ta watchlist, note tes séries et découvre ta prochaine obsession.</p>
       <div class="hero-cta">
         <a href="#" class="btn btn-primary">Commencer à regarder</a>
-        <a href="/catalogue" class="btn btn-ghost">Explorer le catalogue</a>
+        <a href="{{ route('catalogue') }}" class="btn btn-ghost">Explorer le catalogue</a>
       </div>
       <div class="hero-stats">
         <div>
@@ -49,13 +49,13 @@
   <section>
     <div class="section-header">
       <h2 class="section-title">Tendances <span>cette semaine</span> {{ $countAnime }}</h2>
-      <a href="/catalogue" class="section-link">Voir tout</a>
+      <a href="{{ route('catalogue') }}" class="section-link">Voir tout</a>
     </div>
     <div class="anime-grid">
 
 
       @foreach ($getAnime as $elem)
-        <div class="anime-card">
+        <a class="anime-card" href="{{ route('show',$elem->slug) }}">
         <div class="anime-rank">01</div>
         <div class="new-badge">Nouveau</div>
         <img src="{{$elem->image_url}}" alt="Anime 1">
@@ -68,7 +68,7 @@
             <span>2025</span>
           </div>
         </div>
-      </div>
+      </a>
       @endforeach
     </div>
   </section>

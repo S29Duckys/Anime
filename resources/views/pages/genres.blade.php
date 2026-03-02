@@ -53,7 +53,7 @@ $defaultIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stro
   <div class="gr-header-inner">
     <div>
       <div class="gr-breadcrumb">
-        <a href="{{ url('/') }}">Accueil</a>
+        <a href="{{ route('accueil') }}">Accueil</a>
         <span class="sep">/</span>
         <span class="current">Genres</span>
       </div>

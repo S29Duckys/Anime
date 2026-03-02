@@ -23,19 +23,19 @@
         </a>
         <ul class="nav-links">
         <li>
-            <a class="{{ ($currentPage ?? '') === 'catalogue' ? 'activeNavBar' : '' }}" href="/catalogue">Catalogue</a>
+            <a class="{{ ($currentPage ?? '') === 'catalogue' ? 'activeNavBar' : '' }}" href="{{ route('catalogue') }}">Catalogue</a>
         </li>
         <li>
-            <a class="{{ ($currentPage ?? '') === 'tendances' ? 'activeNavBar' : '' }}" href="/tendances">Tendances</a>
+            <a class="{{ ($currentPage ?? '') === 'tendances' ? 'activeNavBar' : '' }}" href="{{ route('tendances') }}">Tendances</a>
         </li>
         <li>
-            <a class="{{ ($currentPage ?? '') === 'genres' ? 'activeNavBar' : '' }}" href="/genres">Genres</a>
+            <a class="{{ ($currentPage ?? '') === 'genres' ? 'activeNavBar' : '' }}" href="{{ route('genres') }}">Genres</a>
         </li>
         <li>
-            <a class="{{ ($currentPage ?? '') === 'saisons' ? 'activeNavBar' : '' }}" href="/saisons">Saisons</a>
+            <a class="{{ ($currentPage ?? '') === 'saisons' ? 'activeNavBar' : '' }}" href="{{ route('saisons') }}">Saisons</a>
         </li>
         <li>
-            <a class="{{ ($currentPage ?? '') === 'maliste' ? 'activeNavBar' : '' }}" href="/maliste">Ma Liste</a>
+            <a class="{{ ($currentPage ?? '') === 'maliste' ? 'activeNavBar' : '' }}" href="{{ route('maliste') }}">Ma Liste</a>
         </li>
         </ul>
         <div class="nav-actions">
