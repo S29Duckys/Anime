@@ -13,7 +13,9 @@ class CatalogueController extends Controller
             ->paginate(12)
             ->withQueryString();
 
-        return view('pages.catalogue', $this->formatPagination($anime, $request));
+        return view('pages.catalogue', 
+            $this->formatPagination($anime, $request)
+        );
     }
 
     public function searchBar(Request $request)
@@ -39,6 +41,8 @@ class CatalogueController extends Controller
     private function formatPagination($anime, Request $request)
     {
         return [
+            'count' => $anime->total(), 
+            'countPerPage' => $anime->count(),
             'currentPage' => 'catalogue',
             'catalogueAnime' => $anime,
             'currentPagePagination' => $anime->currentPage(),
@@ -47,6 +51,7 @@ class CatalogueController extends Controller
             'prevPage' => $anime->previousPageUrl(),
             'firstItem' => $anime->url(1),
             'activeGenre' => $request->genre,
+            'searchValue' => $request->searchBar,
         ];
     }
 }

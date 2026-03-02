@@ -196,7 +196,7 @@
     <!-- Toolbar -->
     <div class="cat-toolbar">
       <span class="cat-result-txt">
-        Affichage <strong>1–12</strong> sur <strong>4 820</strong> résultats
+        Affichage <strong>1–{{$countPerPage}}</strong> sur <strong>{{$count}}</strong> résultats
       </span>
       <div class="cat-toolbar-right">
         <select class="cat-sort-select">
