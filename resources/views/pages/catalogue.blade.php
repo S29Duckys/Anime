@@ -261,15 +261,14 @@
 
     <!-- PAGINATION -->
 <nav class="cat-pagination">
-    <a class="pag-btn disabled">←</a>
-
+  <a href="?page={{ $firstItem }}" class="page-btn">Premier</a>
+    <a href="?page={{ $prevPage }}" class="pag-btn">←</a>
     <a href="?page=1" class="pag-btn {{ request()->query('page', 1) == 1 ? 'active' : '' }}">1</a>
-    <a href="?page=2" class="pag-btn {{ request()->query('page', 1) == 2 ? 'active' : '' }}">2</a>
-    <a href="?page=3" class="pag-btn {{ request()->query('page', 1) == 3 ? 'active' : '' }}">3</a>
-    <span class="pag-dots">···</span>
-    <a href="?page={{ $totalPage }}" class="pag-btn {{ request()->query('page', 1) == $totalPage ? 'active' : '' }}">{{ $totalPage }}</a>
+    <a href="?page={{ $totalPage }}" class="pag-btn {{ request()->query('page', 1) == $totalPage ? 'active' : '' }}">{{$currentPagePagination <= 2 ? "2" : $currentPagePagination }}</a>
+    <a href="?page={{ $nextPage }}" class="pag-btn">→</a>
+    <a href="?page={{ $totalPage }}" class="page-btn">Dernier</a>
 
-    <a href="#" class="pag-btn">→</a>
+
 </nav>
 
   </div><!-- /cat-main -->

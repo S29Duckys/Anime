@@ -21,7 +21,11 @@ class CatalogueController extends Controller
         return view('pages.catalogue', [
             'currentPage' => 'catalogue',
             'catalogueAnime' => $anime,
+            'currentPagePagination' => $anime->currentPage(),
             'totalPage' => $anime->lastPage(),
+            'nextPage' => $anime->previousPageUrl(),
+            'prevPage' => $anime->previousPageUrl(),
+            'firstItem' => $anime->url("1"),
             'activeGenre' => $request->genre,
         ]);
     }
