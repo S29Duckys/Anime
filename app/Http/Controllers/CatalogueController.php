@@ -7,51 +7,73 @@ use App\Models\InfoAnime;
 
 class CatalogueController extends Controller
 {
+    /**
+     * Page catalogue initiale (vue Blade)
+     */
     public function catalogue(Request $request)
     {
         $anime = $this->buildQuery($request)
             ->paginate(12)
             ->withQueryString();
 
-        return view('pages.catalogue', 
-            $this->formatPagination($anime, $request)
-        );
+        return view('pages.catalogue', $this->formatPagination($anime, $request));
     }
 
-    public function searchBar(Request $request)
+    /**
+     * Endpoint JSON pour tout le catalogue (utilisé par JS)
+     */
+    public function cataloguePage(Request $request)
     {
         $anime = $this->buildQuery($request)
             ->paginate(12)
             ->withQueryString();
 
-        return $this->formatPagination($anime, $request);
+        return response()->json($this->formatPagination($anime, $request));
     }
 
-    private function buildQuery(Request $request)
+    /**
+     * Endpoint JSON pour recherche par titre
+     */
+    public function searchBar(Request $request, $query = null)
+    {
+        $anime = $this->buildQuery($request, $query)
+            ->paginate(12)
+            ->withQueryString();
+
+        return response()->json($this->formatPagination($anime, $request));
+    }
+
+    /**
+     * Construit la query selon le genre et le titre
+     */
+    private function buildQuery(Request $request, $search = null)
     {
         return InfoAnime::query()
             ->when($request->filled('genre'), function ($query) use ($request) {
-                $query->where('genre', 'LIKE', '%' . $request->genre . '%');
+                $query->whereJsonContains('genre', $request->input('genre'));
             })
-            ->when($request->filled('searchBar'), function ($query) use ($request) {
-                $query->where('title', 'LIKE', '%' . $request->searchBar . '%');
+            ->when($search, function ($query) use ($search) {
+                $query->where('title', 'LIKE', '%' . $search . '%');
             });
     }
 
+    /**
+     * Formate la pagination et les données pour le front
+     */
     private function formatPagination($anime, Request $request)
     {
         return [
-            'count' => $anime->total(), 
+            'count' => $anime->total(),
             'countPerPage' => $anime->count(),
             'currentPage' => 'catalogue',
-            'catalogueAnime' => $anime,
+            'catalogueAnime' => $anime->items(), // retourne les items uniquement
             'currentPagePagination' => $anime->currentPage(),
             'totalPage' => $anime->lastPage(),
             'nextPage' => $anime->nextPageUrl(),
             'prevPage' => $anime->previousPageUrl(),
             'firstItem' => $anime->url(1),
             'activeGenre' => $request->genre,
-            'searchValue' => $request->searchBar,
+            'searchValue' => $request->searchBar ?? $request->route('query'),
         ];
     }
 }

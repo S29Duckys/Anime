@@ -47,3 +47,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/',      [AdminController::class, 'index'])->name('admin.index');
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
 });
+
+Route::get('/search/all', [CatalogueController::class, 'cataloguePage']);
+Route::get('/search/{query}', [CatalogueController::class, 'searchBar']);
