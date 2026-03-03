@@ -64,30 +64,56 @@ let debounce;
  * Construit le HTML d'une carte à partir d'un objet anime (réponse API).
  */
 function buildCardHtml(elem) {
+    const listButton = window.isAuthenticated
+        ? `
+            <form method="POST" action="${window.malisteUrl}">
+                <input type="hidden" name="_token" value="${window.csrfToken}">
+                <input type="hidden" name="info_anime_id" value="${elem.id}">
+                <input type="hidden" name="status" value="planned">
+                <button type="submit" class="cat-hover-btn cat-hover-list" tabindex="-1">
+                    + Ma liste
+                </button>
+            </form>
+          `
+        : `
+            <a href="${window.loginUrl}" class="cat-hover-btn cat-hover-list" tabindex="-1">
+                + Ma liste
+            </a>
+          `;
+
     return `
 <article class="cat-card">
     <div class="cat-card-img">
         <img src="${elem.image_url}" alt="${elem.title}" loading="lazy" decoding="async">
-        <div class="cat-card-badges"><span class="cat-badge cat-badge-new">Nouveau</span></div>
+        <div class="cat-card-badges">
+            <span class="cat-badge cat-badge-new">Nouveau</span>
+        </div>
         <div class="cat-card-rating">★ ${elem.rating ?? "N/A"}</div>
-        <div class="cat-card-hover" aria-hidden="true">
-            <a href="/anime/${elem.slug}" class="cat-hover-btn cat-hover-watch">▶ Regarder</a>
+
+        <div class="cat-card-hover">
+            <a href="/anime/${elem.slug}" class="cat-hover-btn cat-hover-watch">
+                ▶ Regarder
+            </a>
+
+            ${listButton}
         </div>
     </div>
+
     <div class="cat-card-body">
         <div class="cat-card-genre">${elem.genre ?? ""}</div>
-        <div class="cat-card-title" title="${elem.title}">${elem.title}</div>
+        <div class="cat-card-title" title="${elem.title}">
+            ${elem.title}
+        </div>
         <div class="cat-card-meta">
             <span>${elem.episodes ?? "?"} ép.</span>
-            <span class="dot" aria-hidden="true"></span>
+            <span class="dot"></span>
             <span>${elem.year ?? ""}</span>
-            <span class="dot" aria-hidden="true"></span>
+            <span class="dot"></span>
             <span>${elem.studio ?? ""}</span>
         </div>
     </div>
 </article>`;
 }
-
 searchInput.addEventListener("input", function () {
     const query = this.value.trim();
 

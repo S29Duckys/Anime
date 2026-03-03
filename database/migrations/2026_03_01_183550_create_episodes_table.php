@@ -9,6 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('episodes', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->id();
             $table->foreignId('saison_id')->constrained('saisons')->onDelete('cascade');
             $table->smallInteger('numero')->unsigned();

@@ -9,6 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('saisons', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->id();
             $table->unsignedBigInteger('info_anime_id');
             $table->tinyInteger('numero')->unsigned();

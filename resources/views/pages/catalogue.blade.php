@@ -347,5 +347,10 @@
 
     </div>{{-- /cat-main --}}
 </div>{{-- /catalogue-wrap --}}
-
+<script>
+    window.isAuthenticated = @json(auth()->check());
+    window.loginUrl = "{{ route('login') }}";
+    window.malisteUrl = "{{ route('maliste.store') }}";
+    window.csrfToken = "{{ csrf_token() }}";
+</script>
 @endsection
