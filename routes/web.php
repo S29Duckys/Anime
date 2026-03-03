@@ -10,6 +10,7 @@ use App\Http\Controllers\MalisteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\SettingsController;
 
 
 Route::get('/cgu', function () {
@@ -26,7 +27,6 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/login', 'showLoginForm')->name('login');
     Route::post('/login', 'login');
     Route::post('/logout', 'logout')->name('logout');
-    Route::get('/settings', 'settings')->name('settings');
 });
 
 
@@ -50,3 +50,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 Route::get('/search/all', [CatalogueController::class, 'cataloguePage']);
 Route::get('/search/{query}', [CatalogueController::class, 'searchBar']);
+
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings.home');
+Route::get('/settings/profil/update/{id}', [SettingsController::class, 'index']);
