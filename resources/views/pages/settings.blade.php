@@ -84,17 +84,19 @@
 
           <div class="s-avatar-row">
             <div class="s-avatar">
-              <div class="s-avatar__img" id="avatarInitial" aria-label="Avatar de ShinobiX">S</div>
-              <button class="s-avatar__edit" aria-label="Modifier l'avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                </svg>
-              </button>
-            </div>
+  <div class="s-avatar__img" id="avatarInitial" aria-label="Avatar de ShinobiX">
+    {{$user->pseudo[0]}}
+      </div>
+        <button class="s-avatar__edit" aria-label="Modifier l'avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+        </button>
+        </div>
             <div class="s-avatar-info">
-              <div class="s-avatar-info__name">ShinobiX</div>
-              <div class="s-avatar-info__email">shinobi@tryanime.fr</div>
+              <div class="s-avatar-info__name">{{$user->pseudo}}</div>
+              <div class="s-avatar-info__email">{{$user->email}}</div>
               <div class="s-avatar-info__badge">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="20 6 9 17 4 12"/>
@@ -106,7 +108,7 @@
 
           <div class="s-stats-row" aria-label="Statistiques du compte">
             <div class="s-stat-box">
-              <div class="s-stat-box__num">47<span>+</span></div>
+              <div class="s-stat-box__num">{{$animeMaListe}}</div>
               <div class="s-stat-box__label">En liste</div>
             </div>
             <div class="s-stat-box">
@@ -119,21 +121,22 @@
             </div>
           </div>
 
-          <form method="POST" action="" id="form-profil" novalidate>
+          <form method="POST" action="{{Route('setting.profil')}}" id="form-profil"  enctype="multipart/form-data" novalidate>
             @csrf
-            @method('PATCH')
+          <input type="file" id="avatarInput" name="avatar" accept="image/*" style="display:none">
+
             <div class="s-form-grid">
               <div class="s-field">
                 <label class="s-label" for="pseudo">Pseudo</label>
-                <input class="s-input" type="text" id="pseudo" name="pseudo" value="ShinobiX" autocomplete="username" required>
+                <input class="s-input" type="text" id="pseudo" name="pseudo" value="{{$user->pseudo}}" autocomplete="username" required>
               </div>
               <div class="s-field">
                 <label class="s-label" for="email">Email</label>
-                <input class="s-input" type="email" id="email" name="email" value="shinobi@tryanime.fr" autocomplete="email" required>
+                <input class="s-input" type="email" id="email" name="email" value="{{$user->email}}" autocomplete="email" required>
               </div>
               <div class="s-field s-field--full">
                 <label class="s-label" for="bio">Bio <span style="opacity:.4;font-weight:400">- optionnel</span></label>
-                <textarea class="s-input" id="bio" name="bio" rows="3" maxlength="200" placeholder="Parle un peu de toi..." style="resize:vertical">Fan de shonen depuis 2012. JJK et AoT forever.</textarea>
+                <textarea class="s-input" id="bio" name="bio" rows="3" maxlength="200" placeholder="Parle un peu de toi..." style="resize:vertical"></textarea>
                 <span class="s-hint" id="bio-count">0 / 200 caracteres</span>
               </div>
             </div>
@@ -158,7 +161,6 @@
           </div>
           <form method="POST" action="" id="form-password" novalidate>
             @csrf
-            @method('PATCH')
             <div class="s-form-grid s-form-grid--full">
               <div class="s-field">
                 <label class="s-label" for="current_password">Mot de passe actuel</label>

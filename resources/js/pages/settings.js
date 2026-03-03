@@ -98,3 +98,27 @@ if (confirmInput && confirmBtn) {
         confirmBtn.disabled = confirmInput.value.trim() !== "ShinobiX";
     });
 }
+
+const editButton = document.querySelector(".s-avatar__edit");
+const avatarInput = document.getElementById("avatarInput");
+const avatarDiv = document.getElementById("avatarInitial");
+
+editButton.addEventListener("click", () => {
+    avatarInput.click(); // ouvre le sélecteur de fichiers
+});
+
+avatarInput.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            console.log(e.target.result);
+
+            avatarDiv.style.backgroundImage = `url('${e.target.result}')`;
+            avatarDiv.textContent = "";
+            avatarDiv.style.backgroundSize = "cover";
+            avatarDiv.style.backgroundPosition = "center";
+        };
+        reader.readAsDataURL(file);
+    }
+});

@@ -51,7 +51,7 @@
                     <div class="btn-me-dropdown">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            @if(auth()->user()->isAdmin)
+                            @if(auth()->user()->isAdmin ?? false)
                                 <a href="/admin" class="btn-me-logout">ADMIN</a>
                             @endif
                             <a href="/settings" class="btn-me-logout">Paramètre</a>

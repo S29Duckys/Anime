@@ -8,7 +8,7 @@
      ======================================== -->
 <div class="ml-header">
   <div class="ml-header-bg"></div>
-  <div class="ml-header-deco">MY LIST</div>
+  <div class="ml-header-deco">MA LISTE</div>
 
   <div class="ml-header-inner">
     <div>

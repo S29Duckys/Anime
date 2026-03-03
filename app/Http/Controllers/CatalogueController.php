@@ -63,7 +63,7 @@ class CatalogueController extends Controller
     private function formatPagination($anime, Request $request): array
     {
         return [
-            'totalPage'              => $anime->total(),
+            'totalPage'              => $anime->count(),
             'countPerPage'           => $anime->perPage(),
             'currentView'            => 'catalogue',
             'catalogueAnime'         => $anime->items(),

@@ -52,4 +52,4 @@ Route::get('/search/all', [CatalogueController::class, 'cataloguePage']);
 Route::get('/search/{query}', [CatalogueController::class, 'searchBar']);
 
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings.home');
-Route::get('/settings/profil/update/{id}', [SettingsController::class, 'index']);
+Route::post('/settings/profile/udpate', [SettingsController::class, 'UpdateProfil'])->name('setting.profil');

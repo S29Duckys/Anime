@@ -38,7 +38,6 @@ class MalisteController extends Controller
         }
 
         $user->animeList()->attach($request->info_anime_id, [
-            'id' => uniqid(),
             'status' => $request->status ?? 'planned',
             'progress' => 0,
         ]);

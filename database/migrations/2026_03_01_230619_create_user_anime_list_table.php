@@ -14,12 +14,7 @@ return new class extends Migration
         Schema::create('user_anime_list', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->id();
-
             $table->string('user_id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->cascadeOnDelete();
 
             $table->foreignId('info_anime_id')
                 ->constrained('info_anime')
