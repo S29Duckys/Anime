@@ -854,7 +854,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
      PAGINATION
      ============================================= */
 .cat-pagination {
-    z-index: 0;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -60,20 +60,20 @@ class CatalogueController extends Controller
     /**
      * Formate la pagination et les données pour le front
      */
-    private function formatPagination($anime, Request $request)
+    private function formatPagination($anime, Request $request): array
     {
         return [
-            'count' => $anime->total(),
-            'countPerPage' => $anime->count(),
-            'currentPage' => 'catalogue',
-            'catalogueAnime' => $anime->items(), // retourne les items uniquement
-            'currentPagePagination' => $anime->currentPage(),
-            'totalPage' => $anime->lastPage(),
-            'nextPage' => $anime->nextPageUrl(),
-            'prevPage' => $anime->previousPageUrl(),
-            'firstItem' => $anime->url(1),
-            'activeGenre' => $request->genre,
-            'searchValue' => $request->searchBar ?? $request->route('query'),
+            'totalPage'              => $anime->total(),
+            'countPerPage'           => $anime->perPage(),
+            'currentView'            => 'catalogue',
+            'catalogueAnime'         => $anime->items(),
+            'currentPagePagination'            => $anime->currentPage(),
+            'totalPages'             => $anime->lastPage(),
+            'firstPageUrl'           => $anime->url(1),
+            'nextPage'            => $anime->nextPageUrl(),
+            'prevPage'            => $anime->previousPageUrl(),
+            'activeGenre'            => $request->genre,
+            'searchValue'            => $request->searchBar ?? $request->route('query'),
         ];
     }
 }
