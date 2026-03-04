@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\InfoAnime;
+use App\Models\Genres;
 
 class CatalogueController extends Controller
 {
@@ -62,6 +63,7 @@ class CatalogueController extends Controller
      */
     private function formatPagination($anime, Request $request): array
     {
+        $genres = Genres::paginate(5);
         return [
             'totalPage'              => $anime->count(),
             'countPerPage'           => $anime->perPage(),
@@ -74,6 +76,7 @@ class CatalogueController extends Controller
             'prevPage'            => $anime->previousPageUrl(),
             'activeGenre'            => $request->genre,
             'searchValue'            => $request->searchBar ?? $request->route('query'),
+            'genres'                => $genres
         ];
     }
 }

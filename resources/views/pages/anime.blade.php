@@ -15,7 +15,6 @@
 
     {{-- ══════════════════════════════════ APERÇU ══════════════════════════════════ --}}
         <section class="anime-apercu">
-
         <div class="cat-breadcrumb">
             <a href="{{ url('/catalogue') }}">Catalogue</a>
             <span class="sep">/</span>
@@ -120,10 +119,10 @@
         <div class="seasons-list">
 
             {{-- ── Saison 1 (ouverte par défaut) ── --}}
-            <details class="season-block" open>
+            @for ($i = 0;0<=$animeFolder['counts'];$i++ )
+                <details class="season-block" open>
                 <summary class="season-summary">
                     <div class="season-thumb-wrap">
-                        <img src="{{ asset('img/placeholder.jpg') }}" alt="Saison 1">
                         <span class="season-thumb-label">Saison 1</span>
                     </div>
                     <span class="season-name">Saison 1</span>
@@ -134,26 +133,22 @@
                 </summary>
 
                 <div class="episodes-grid">
-                    @for ($i = 1; $i <= 12; $i++)
+            
                     <a href="#" class="episode-card">
                         <div class="ep-thumb">
-                            <img src="{{ asset('img/placeholder.jpg') }}" alt="Épisode {{ $i }}">
                             <div class="ep-play-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
                                 </svg>
                             </div>
-                            <span class="ep-num-badge">EP {{ $i }}</span>
                         </div>
                         <div class="ep-info">
-                            <span class="ep-number">Épisode {{ $i }}</span>
-                            <span class="ep-title">Titre de l'épisode {{ $i }}</span>
                             <span class="ep-duration">24 min</span>
                         </div>
                     </a>
-                    @endfor
                 </div>
             </details>
+            @endfor
 
             {{-- ── Saison 2 (fermée par défaut) ── --}}
             <details class="season-block">

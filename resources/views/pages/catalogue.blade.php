@@ -98,32 +98,16 @@
             </div>
         </div>
 
-        {{-- GENRE --}}
-        @php
-            $genres = [
-                ['Action',       1240],
-                ['Fantasy',       980],
-                ['Romance',       760],
-                ['Comédie',       870],
-                ['Seinen',        540],
-                ['Shonen',        680],
-                ['Mecha',         340],
-                ['Horreur',       290],
-                ['Isekai',        410],
-                ['Slice of Life', 620],
-            ];
-        @endphp
         <div class="filter-grp is-open">
             <button class="filter-grp-head" type="button" onclick="toggleGrp(this)" aria-expanded="true">
                 <span class="filter-grp-lbl">Genre</span>
                 <span class="filter-grp-arrow" aria-hidden="true">▾</span>
             </button>
             <div class="filter-grp-body">
-                @foreach($genres as [$name, $count])
+                @foreach($genres as $elem)
                     <label class="f-check">
-                        <input type="checkbox" {{ $name === 'Action' ? 'checked' : '' }} value="{{ $name }}">
-                        <span class="f-check-label">{{ $name }}</span>
-                        <span class="f-check-count">{{ number_format($count, 0, ',', ' ') }}</span>
+                        <input type="checkbox" {{ $elem->nom === 'Action' ? 'checked' : '' }} value="{{ $elem->slug }}">
+                        <span class="f-check-label">{{ $elem->nom }}</span>
                     </label>
                 @endforeach
             </div>
