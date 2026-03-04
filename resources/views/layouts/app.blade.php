@@ -42,7 +42,11 @@
             @auth
                 <div class="btn-me-wrapper">
                     <div class="btn-me">
+                        @if (auth()->user()->avatar)
+                            <img class="btn-me-avatar" src="storage/{{ auth()->user()->avatar }}" alt="{{ auth()->user()->pseudo }}">
+                        @else
                         <div class="btn-me-avatar">{{ strtoupper(substr(auth()->user()->pseudo, 0, 1)) }}</div>
+                        @endif
                         <span class="btn-me-pseudo">{{ auth()->user()->pseudo }}</span>
                         <svg class="btn-me-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
