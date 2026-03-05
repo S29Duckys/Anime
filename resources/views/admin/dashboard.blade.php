@@ -33,7 +33,7 @@
           <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
         </svg>
         Utilisateurs
-        <span class="nav-badge">48K</span>
+        <span class="nav-badge">{{$countUsers}}</span>
       </a>
 
       <a href="/admin/animes" class="nav-item">
@@ -90,7 +90,7 @@
     </nav>
 
     <div class="sidebar-user">
-      <div class="user-avatar">A</div>
+      <div class="user-avatar">{{auth()->user()->pseudo[0]}}</div>
       <div class="user-info">
         <div class="user-name">{{ auth()->user()->pseudo ?? 'Admin' }}</div>
         <div class="user-role">Administrateur</div>
@@ -131,7 +131,7 @@
       <div class="stat-card">
         <div class="stat-card-deco">USR</div>
         <div class="stat-label">Utilisateurs</div>
-        <div class="stat-value">48<span>K</span></div>
+        <div class="stat-value">{{$countUsers}}</div>
         <div class="stat-delta up">↑ +312 cette semaine</div>
       </div>
 
@@ -139,7 +139,7 @@
       <div class="stat-card">
         <div class="stat-card-deco">ANI</div>
         <div class="stat-label">Animes</div>
-        <div class="stat-value">12<span>482</span></div>
+        <div class="stat-value">{{$countAnimes}}</div>
         <div class="stat-delta up">↑ +24 ce mois</div>
       </div>
 
@@ -167,36 +167,15 @@
             </tr>
           </thead>
           <tbody>
+             @foreach ($users as $user)
             <tr>
-              <td><div class="td-user"><div class="td-avatar">K</div><span class="td-name">Kazuya</span></div></td>
-              <td>kazuya@mail.com</td>
-              <td>28 fév. 2025</td>
+
+              <td><div class="td-user"><div class="td-avatar">{{$user->pseudo[0]}}</div><span class="td-name">{{ $user->pseudo }}</span></div></td>
+              <td>{{$user->email}}</td>
+              <td>{{$user->created_at}}</td>
               <td><span class="td-status active">● Actif</span></td>
             </tr>
-            <tr>
-              <td><div class="td-user"><div class="td-avatar">S</div><span class="td-name">Sakura</span></div></td>
-              <td>sakura@mail.com</td>
-              <td>27 fév. 2025</td>
-              <td><span class="td-status active">● Actif</span></td>
-            </tr>
-            <tr>
-              <td><div class="td-user"><div class="td-avatar">R</div><span class="td-name">Ryoma</span></div></td>
-              <td>ryoma@mail.com</td>
-              <td>26 fév. 2025</td>
-              <td><span class="td-status banned">● Banni</span></td>
-            </tr>
-            <tr>
-              <td><div class="td-user"><div class="td-avatar">H</div><span class="td-name">Hana</span></div></td>
-              <td>hana@mail.com</td>
-              <td>25 fév. 2025</td>
-              <td><span class="td-status pending">● En attente</span></td>
-            </tr>
-            <tr>
-              <td><div class="td-user"><div class="td-avatar">T</div><span class="td-name">Taro</span></div></td>
-              <td>taro@mail.com</td>
-              <td>24 fév. 2025</td>
-              <td><span class="td-status active">● Actif</span></td>
-            </tr>
+              @endforeach
           </tbody>
         </table>
       </div>

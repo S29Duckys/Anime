@@ -489,7 +489,6 @@ body::after {
 .admin-table {
     width: 100%;
     border-collapse: collapse;
-    flex: 1;
 }
 
 .admin-table thead th {
