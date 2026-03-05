@@ -12,7 +12,6 @@
 
 @section('content')
 <div class="anime-page">
-
     {{-- ══════════════════════════════════ APERÇU ══════════════════════════════════ --}}
         <section class="anime-apercu">
         <div class="cat-breadcrumb">
@@ -119,73 +118,36 @@
         <div class="seasons-list">
 
             {{-- ── Saison 1 (ouverte par défaut) ── --}}
-            @for ($i = 0;0<=$animeFolder['counts'];$i++ )
-                <details class="season-block" open>
-                <summary class="season-summary">
-                    <div class="season-thumb-wrap">
-                        <span class="season-thumb-label">Saison 1</span>
+@foreach ($animeFolder['allEpisodes'] as $seasonName => $episodes)
+    <details class="season-block" open>
+        <summary class="season-summary">
+            <div class="season-thumb-wrap">
+                <img class="ep-play-icon" src="{{ $anime->image_url }}" alt="">
+                <span class="season-thumb-label">{{ $seasonName }}</span>
+            </div>
+            <span class="season-name">{{ $seasonName }}</span>
+            <span class="season-ep-count">{{ count($episodes) }} épisodes</span>
+            <svg class="season-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </summary>
+
+        <div class="episodes-grid">
+            @foreach ($episodes as $episode)
+                <a href="video/{{$anime->slug}}/{{$seasonName}}/{{ $episode['file'] }}" class="episode-card">
+                    <div class="ep-thumb">
+                        <img class="ep-play-icon" src="{{ $anime->image_url }}" alt="">
                     </div>
-                    <span class="season-name">Saison 1</span>
-                    <span class="season-ep-count">12 épisodes · 2018</span>
-                    <svg class="season-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </summary>
-
-                <div class="episodes-grid">
-            
-                    <a href="#" class="episode-card">
-                        <div class="ep-thumb">
-                            <div class="ep-play-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="ep-info">
-                            <span class="ep-duration">24 min</span>
-                        </div>
-                    </a>
-                </div>
-            </details>
-            @endfor
-
-            {{-- ── Saison 2 (fermée par défaut) ── --}}
-            <details class="season-block">
-                <summary class="season-summary">
-                    <div class="season-thumb-wrap">
-                        <img src="{{ asset('img/placeholder.jpg') }}" alt="Saison 2">
-                        <span class="season-thumb-label">Saison 2</span>
+                    <div class="ep-info">
+                        <span class="ep-title">{{ $episode['file'] }}</span>
+                        <span class="ep-duration">24 min</span>
                     </div>
-                    <span class="season-name">Saison 2</span>
-                    <span class="season-ep-count">8 épisodes · 2020</span>
-                    <svg class="season-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </summary>
+                </a>
+            @endforeach
+        </div>
 
-                <div class="episodes-grid">
-                    @for ($i = 1; $i <= 8; $i++)
-                    <a href="#" class="episode-card">
-                        <div class="ep-thumb">
-                            <img src="{{ asset('img/placeholder.jpg') }}" alt="Épisode {{ $i }}">
-                            <div class="ep-play-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                            <span class="ep-num-badge">EP {{ $i }}</span>
-                        </div>
-                        <div class="ep-info">
-                            <span class="ep-number">Épisode {{ $i }}</span>
-                            <span class="ep-title">Titre de l'épisode {{ $i }}</span>
-                            <span class="ep-duration">24 min</span>
-                        </div>
-                    </a>
-                    @endfor
-                </div>
-            </details>
-
+    </details>
+@endforeach
         </div>
     </section>
 

@@ -30,6 +30,8 @@ Route::controller(UsersController::class)->group(function () {
 });
 
 
+Route::get('/anime/stream/{name}/{saison}/{slug}', [AnimeController::class, 'stream'])->name('video.stream')->where('slug', '.*');
+Route::get('/anime/video/{name}/{saison}/{slug}', [AnimeController::class, 'video'])->name('video');
 Route::get('/anime/{slug}', [AnimeController::class, 'show'])->name('show');
 Route::get('/catalogue', [CatalogueController::class, 'catalogue'])->name('catalogue');
 Route::get('/tendances', [TendancesController::class, 'tendances'])->name('tendances');
