@@ -2,9 +2,9 @@
 
 @section('title', '500 - Erreur Serveur')
 
-@section('styles')
-@vite(['resources/css/errors/errors.css'])
-@endsection
+@push('vite')
+    @vite('resources/css/errors/errors.css')
+@endpush
 
 @section('content')
 <div class="site-bg-glows"></div>

@@ -2,7 +2,7 @@
 
 @section('title', 'Conditions Générales d\'Utilisation — TryAnime')
 
-@push('styles')
+@push('vite')
     @vite(['resources/css/pages/cgu.css'])
 @endpush
 

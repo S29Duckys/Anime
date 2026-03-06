@@ -222,3 +222,6 @@
 
 </div>
 @endsection
+@push('vite')
+@vite(['resources/css/pages/register.css','resources/js/pages/register.js'])
+@endpush

@@ -78,8 +78,6 @@
         </div>
 
         <div class="active-chips" id="activeChips" aria-live="polite">
-            <span class="active-chip">Action <span class="chip-x" aria-label="Retirer">✕</span></span>
-            <span class="active-chip">Hiver 2025 <span class="chip-x" aria-label="Retirer">✕</span></span>
         </div>
 
         {{-- SORT --}}
@@ -105,8 +103,8 @@
             </button>
             <div class="filter-grp-body">
                 @foreach($genres as $elem)
-                    <label class="f-check">
-                        <input type="checkbox" {{ $elem->nom === 'Action' ? 'checked' : '' }} value="{{ $elem->slug }}">
+                    <label class="f-check" id="checkboxFilter">
+                        <input type="checkbox" {{ $elem->nom}} value="{{ $elem->slug }}">
                         <span class="f-check-label">{{ $elem->nom }}</span>
                     </label>
                 @endforeach
@@ -338,3 +336,6 @@
     window.csrfToken = "{{ csrf_token() }}";
 </script>
 @endsection
+@push('vite')
+@vite(['resources/css/pages/catalogue.css','resources/js/pages/catalogue.js'])
+@endpush

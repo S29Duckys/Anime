@@ -157,3 +157,6 @@
 </div><!-- /ml-content -->
 
 @endsection
+@push('vite')
+@vite(['resources/css/pages/maliste.css'])
+@endpush

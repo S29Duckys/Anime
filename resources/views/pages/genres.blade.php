@@ -89,3 +89,6 @@ $defaultIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stro
 </div>
 
 @endsection
+@push('vite')
+@vite(['resources/css/pages/genres.css'])
+@endpush

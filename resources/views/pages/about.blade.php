@@ -2,7 +2,7 @@
 
 @section('title', 'À propos — TryAnime')
 
-@push('styles')
+@push('vite')
     @vite(['resources/css/pages/about.css'])
 @endpush
 

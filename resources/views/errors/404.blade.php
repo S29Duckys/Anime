@@ -2,9 +2,9 @@
 
 @section('title', '404 - Page Not Found')
 
-@section('styles')
+@push('vite')
 @vite(['resources/css/errors/errors.css'])
-@endsection
+@endpush
 
 @section('content')
 <div class="site-bg-glows"></div>

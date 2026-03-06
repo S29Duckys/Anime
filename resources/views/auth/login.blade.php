@@ -150,3 +150,6 @@
 
 </div>
 @endsection
+@push('vite')
+@vite(['resources/css/pages/login.css','resources/js/pages/login.js'])
+@endpush

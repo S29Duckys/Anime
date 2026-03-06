@@ -355,3 +355,6 @@
   </div><!-- /admin-main -->
 </div><!-- /admin-shell -->
 @endsection
+@push('vite')
+@vite(['resources/css/admin/user.css','resources/js/admin/user.js'])
+@endpush

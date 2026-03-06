@@ -286,3 +286,6 @@
 
 
 @endsection
+@push("vite")
+    @vite(['resources/js/pages/video.js','resources/css/pages/video.js'])
+@endpush

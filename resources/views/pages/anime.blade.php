@@ -2,12 +2,8 @@
 
 @section('title', 'Anime')
 
-@push('styles')
-    @vite('resources/css/pages/anime.css')
-@endpush
-
-@push('scripts')
-    @vite('resources/js/pages/anime.js')
+@push('vite')
+    @vite(['resources/css/pages/anime.css','resources/js/pages/anime.js'])
 @endpush
 
 @section('content')

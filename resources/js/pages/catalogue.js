@@ -163,3 +163,23 @@ document.addEventListener("keydown", (e) => {
         searchInput.focus();
     }
 });
+
+const checkboxFilter = document.querySelectorAll("#checkboxFilter");
+
+for (const checkboxElem of checkboxFilter) {
+    checkboxElem.addEventListener("change", async (e) => {
+        const { value, checked } = e.target;
+        if (!checked) return;
+
+        try {
+            const response = await fetch(
+                `/catalogue?genre=${encodeURIComponent(value)}`,
+            );
+            if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+            const data = await response.json();
+            console.log(data);
+        } catch (err) {
+            console.error("Failed to fetch catalogue:", err);
+        }
+    });
+}

@@ -398,3 +398,6 @@
 </div>
 
 @endsection
+@push('vite')
+@vite(['resources/css/pages/settings.css','resources/js/pages/settings.js'])
+@endpush
